@@ -1,0 +1,151 @@
+.navbar {
+    background-color: var(--bg-deep);
+    border-bottom: 1px solid #222;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-logo-icon {
+    height: 40px;
+    width: auto;
+}
+
+.nav-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    /* Triangle approximation or just a dot */
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #111;
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.search-icon {
+    color: #555;
+    margin-right: 0.5rem;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.nav-cta {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+}
+
+.mobile-toggle {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--bg-deep);
+        padding: 2rem;
+        border-bottom: 1px solid var(--primary);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        z-index: 999;
+    }
+
+    .mobile-menu a {
+        font-family: var(--font-heading);
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}

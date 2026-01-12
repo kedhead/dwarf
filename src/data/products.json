@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Runebound Battle Axe",
+        "price": 250,
+        "description": "Double-bitted axe etched with glowing runes of power. Perfectly balanced for the discerning warrior.",
+        "category": "Weapon",
+        "image": "https://placehold.co/400x500/222/c5a059?text=Runebound+Axe"
+    },
+    {
+        "id": 2,
+        "name": "Mountain King Shield",
+        "price": 320,
+        "description": "Heavy iron shield reinforced with adamantite. Bears the crest of the High King.",
+        "category": "Armor",
+        "image": "https://placehold.co/400x500/222/c5a059?text=Mountain+King"
+    },
+    {
+        "id": 3,
+        "name": "Thane's Crown",
+        "price": 450,
+        "description": "A ceremonial circlet forged from deep-mountain gold, set with unpolished rubies.",
+        "category": "Jewelry",
+        "image": "https://placehold.co/400x500/222/c5a059?text=Thane's+Crown"
+    },
+    {
+        "id": 4,
+        "name": "Forgemaster's Hammer",
+        "price": 180,
+        "description": "A blackened steel crafting hammer. It has shaped a thousand blades and will shape a thousand more.",
+        "category": "Tool",
+        "image": "https://placehold.co/400x500/222/c5a059?text=Forge+Hammer"
+    },
+    {
+        "id": 5,
+        "name": "Ironclad Bracers",
+        "price": 120,
+        "description": "Thick leather bracers plated with interlocking iron scales. Flexible yet impenetrable.",
+        "category": "Armor",
+        "image": "https://placehold.co/400x500/222/c5a059?text=Ironclad+Bracers"
+    },
+    {
+        "id": 6,
+        "name": "Ancestor's Amulet",
+        "price": 85,
+        "description": "A heavy stone pendant carved with the visage of a clan ancestor. Radiates a faint warmth.",
+        "category": "Jewelry",
+        "image": "https://placehold.co/400x500/222/c5a059?text=Ancestor's+Amulet"
+    }
+]
