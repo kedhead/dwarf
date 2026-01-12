@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../context/ProductsContext';
 import { useContent } from '../context/ContentContext';
-import { Plus, Trash, LogOut, Package, Image as ImageIcon, Calendar, MapPin, Share2 } from 'lucide-react';
+import { Plus, Trash, LogOut, Package, Image as ImageIcon, Calendar, MapPin, Share2, Scroll } from 'lucide-react';
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
