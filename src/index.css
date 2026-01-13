@@ -26,6 +26,7 @@
   --fantasy-glow: 0 0 15px rgba(245, 158, 11, 0.5);
   --fantasy-inset: inset 0 2px 4px rgba(0, 0, 0, 0.5);
   --fantasy-bevel: inset 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 0 rgba(0, 0, 0, 0.5);
+  --header-height: 80px;
 }
 
 * {
