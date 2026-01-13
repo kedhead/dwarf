@@ -59,6 +59,31 @@ const StoneNavbar = () => {
                 </div>
             </div>
 
+            {/* Mobile Menu Overlay */}
+            {isOpen && (
+                <div style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    height: '100vh',
+                    backgroundColor: 'rgba(5, 5, 5, 0.98)',
+                    backdropFilter: 'blur(10px)',
+                    zIndex: 999,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    paddingTop: '4rem',
+                    gap: '2rem'
+                }}>
+                    <NavLink to="/" onClick={() => setIsOpen(false)} style={linkStyle}>Home</NavLink>
+                    <NavLink to="/shop" onClick={() => setIsOpen(false)} style={linkStyle}>Mercantile</NavLink>
+                    <NavLink to="/about" onClick={() => setIsOpen(false)} style={linkStyle}>The Clan</NavLink>
+                    <NavLink to="/events" onClick={() => setIsOpen(false)} style={linkStyle}>Gatherings</NavLink>
+                    <NavLink to="/shop" onClick={() => setIsOpen(false)} style={{ ...linkStyle, color: '#f59e0b', border: '1px solid #f59e0b', padding: '1rem 2rem' }}>JOIN THE CLAN</NavLink>
+                </div>
+            )}
+
             <style>{`
                 @media (max-width: 768px) {
                     .desktop-links { display: none !important; }
