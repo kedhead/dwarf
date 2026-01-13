@@ -45,6 +45,7 @@ const Navbar = () => {
           <NavLink to="/shop" onClick={() => setIsMenuOpen(false)}>Gallery</NavLink>
           <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>The Mines</NavLink>
           <NavLink to="/events" onClick={() => setIsMenuOpen(false)}>Artifacts</NavLink>
+          <NavLink to="/shop" onClick={() => setIsMenuOpen(false)} style={{ color: '#f59e0b', fontWeight: 'bold' }}>JOIN THE CLAN</NavLink>
         </div>
       )}
     </nav>

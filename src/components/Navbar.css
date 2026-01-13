@@ -133,13 +133,15 @@
         top: var(--header-height);
         left: 0;
         width: 100%;
-        background: var(--bg-deep);
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(10px);
         padding: 2rem;
-        border-bottom: 1px solid var(--primary);
+        border-bottom: 1px solid #333;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
         z-index: 999;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .mobile-menu a {

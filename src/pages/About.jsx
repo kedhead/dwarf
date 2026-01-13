@@ -249,6 +249,13 @@ const About = () => {
                     </div>
                 </div>
 
+                <style>{`
+                    iframe {
+                        max-width: 100%;
+                        border-radius: 4px;
+                        border: 1px solid #333;
+                    }
+                `}</style>
             </section>
         </div>
     );

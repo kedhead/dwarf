@@ -6,12 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const StoneHero = () => {
     const navigate = useNavigate();
     return (
-        <section style={{
+        <section className="stone-hero" style={{
             textAlign: 'center',
             position: 'relative',
-            height: '90vh',
-            maxHeight: '1000px',
-            minHeight: '700px',
+            // height set in css
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
@@ -23,6 +21,20 @@ const StoneHero = () => {
             backgroundPosition: 'center',
             boxShadow: 'inset 0 -200px 150px #050505' /* Smooth fade to black */
         }}>
+            <style>{`
+                .stone-hero {
+                    height: 90vh;
+                    max-height: 1000px;
+                    min-height: 700px;
+                }
+                @media (max-width: 768px) {
+                    .stone-hero {
+                        height: 60vh !important; /* Shorter on mobile */
+                        min-height: 500px !important;
+                        padding-bottom: 4rem !important; /* Less padding on mobile */
+                    }
+                }
+            `}</style>
 
             {/* Overlay Gradient for Text Readability if needed (optional) */}
             <div style={{
