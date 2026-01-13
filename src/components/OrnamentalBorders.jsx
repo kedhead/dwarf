@@ -21,7 +21,12 @@ const OrnamentalBorders = () => {
     const runes = ['ᚱ', 'ᚲ', 'ᛃ', 'ᛈ', 'ᚦ', 'ᚨ', 'ᚱ', 'ᚲ'];
 
     return (
-        <>
+        <div className="ornamental-borders">
+            <style>{`
+                @media (max-width: 1024px) {
+                    .ornamental-borders { display: none !important; }
+                }
+            `}</style>
             {/* Left Border */}
             <div style={{ ...runeStyle, left: 0 }}>
                 {runes.map((rune, i) => (
@@ -51,7 +56,7 @@ const OrnamentalBorders = () => {
                     </span>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
