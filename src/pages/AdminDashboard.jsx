@@ -12,9 +12,11 @@ const AdminDashboard = () => {
         clanSettings, updateClanSettings,
         clanPosts, addClanPost, removeClanPost,
         makers, addMaker, removeMaker,
-        subscribers, newsletters, addNewsletter
+        subscribers, newsletters, addNewsletter,
+        pageHeaders, updatePageHeader
     } = useContent();
     const [activeTab, setActiveTab] = useState('products');
+    const [selectedPage, setSelectedPage] = useState('home');
 
     // New Maker Form State
     const [newMaker, setNewMaker] = useState({
@@ -155,6 +157,17 @@ const AdminDashboard = () => {
                     }}
                 >
                     Scribe's Quarters
+                </button>
+                <button
+                    onClick={() => setActiveTab('content')}
+                    style={{
+                        background: 'none', border: 'none', padding: '1rem 2rem', cursor: 'pointer',
+                        color: activeTab === 'content' ? '#f59e0b' : '#666',
+                        borderBottom: activeTab === 'content' ? '2px solid #f59e0b' : 'none',
+                        fontWeight: 'bold', fontSize: '1.1rem'
+                    }}
+                >
+                    Site Content
                 </button>
             </div>
 
@@ -442,6 +455,62 @@ const AdminDashboard = () => {
                                         </div>
                                     </div>
                                 ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {/* TAB: SITE CONTENT */}
+            {activeTab === 'content' && (
+                <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+                    <div className="amber-card">
+                        <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff' }}>
+                            <ImageIcon size={20} color="#f59e0b" /> Page Headers
+                        </h3>
+
+                        <div style={{ marginBottom: '2rem' }}>
+                            <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem' }}>Select Page to Edit</label>
+                            <select
+                                className="amber-input"
+                                value={selectedPage}
+                                onChange={(e) => setSelectedPage(e.target.value)}
+                            >
+                                <option value="home">Home Page (Hero)</option>
+                                <option value="shop">Shop (The Armory)</option>
+                                <option value="about">About (Meet The Makers)</option>
+                            </select>
+                        </div>
+
+                        {pageHeaders && pageHeaders[selectedPage] && (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                <div>
+                                    <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem' }}>Header Image URL</label>
+                                    <input
+                                        className="amber-input"
+                                        value={pageHeaders[selectedPage].image || ''}
+                                        onChange={(e) => updatePageHeader(selectedPage, { image: e.target.value })}
+                                        placeholder="/path/to/image.png or http://..."
+                                    />
+                                    <p style={{ color: '#666', fontSize: '0.85rem', marginTop: '0.5rem' }}>
+                                        Recommended: 1920x1080px or higher resolution.
+                                    </p>
+                                </div>
+
+                                {/* Preview */}
+                                <div>
+                                    <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem' }}>Preview</label>
+                                    <div style={{
+                                        width: '100%',
+                                        height: '200px',
+                                        background: '#111',
+                                        backgroundImage: `url(${pageHeaders[selectedPage].image})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        border: '1px solid #333',
+                                        borderRadius: '4px'
+                                    }} />
+                                </div>
                             </div>
                         )}
                     </div>

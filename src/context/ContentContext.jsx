@@ -63,6 +63,13 @@ const initialMakers = [
     }
 ];
 
+
+const initialPageHeaders = {
+    home: { image: '/heroheaderfull.png?v=2' },
+    shop: { image: '/header_shop.png' }, // Placeholder default
+    about: { image: '/header_about.png' } // Placeholder default
+};
+
 export const ContentProvider = ({ children }) => {
     const [events, setEvents] = useState([]);
     const [clanSettings, setClanSettings] = useState(initialClanSettings);
@@ -71,6 +78,7 @@ export const ContentProvider = ({ children }) => {
     const [makers, setMakers] = useState([]);
     const [subscribers, setSubscribers] = useState([]);
     const [newsletters, setNewsletters] = useState([]);
+    const [pageHeaders, setPageHeaders] = useState(initialPageHeaders);
 
     useEffect(() => {
         // Load Events
@@ -125,6 +133,15 @@ export const ContentProvider = ({ children }) => {
         } else {
             setNewsletters([]);
             localStorage.setItem('dwarf_newsletters', JSON.stringify([]));
+        }
+
+        // Load Page Headers
+        const storedHeaders = localStorage.getItem('dwarf_page_headers');
+        if (storedHeaders) {
+            setPageHeaders(JSON.parse(storedHeaders));
+        } else {
+            setPageHeaders(initialPageHeaders);
+            localStorage.setItem('dwarf_page_headers', JSON.stringify(initialPageHeaders));
         }
     }, []);
 
@@ -185,6 +202,12 @@ export const ContentProvider = ({ children }) => {
         localStorage.setItem('dwarf_newsletters', JSON.stringify(updatedNewsletters));
     };
 
+    const updatePageHeader = (pageKey, newConfig) => {
+        const updatedHeaders = { ...pageHeaders, [pageKey]: { ...pageHeaders[pageKey], ...newConfig } };
+        setPageHeaders(updatedHeaders);
+        localStorage.setItem('dwarf_page_headers', JSON.stringify(updatedHeaders));
+    };
+
     return (
         <ContentContext.Provider value={{
             events, addEvent, removeEvent,
@@ -192,7 +215,8 @@ export const ContentProvider = ({ children }) => {
             clanPosts, addClanPost, removeClanPost,
             makers, addMaker, removeMaker,
             subscribers, addSubscriber,
-            newsletters, addNewsletter
+            newsletters, addNewsletter,
+            pageHeaders, updatePageHeader
         }}>
             {children}
         </ContentContext.Provider>

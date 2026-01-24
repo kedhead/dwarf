@@ -2,9 +2,11 @@ import React from 'react';
 import { Hammer, Shield } from 'lucide-react';
 import FantasyButton from './FantasyButton';
 import { useNavigate } from 'react-router-dom';
+import { useContent } from '../context/ContentContext';
 
 const StoneHero = () => {
     const navigate = useNavigate();
+    const { pageHeaders } = useContent();
     return (
         <section className="stone-hero" style={{
             textAlign: 'center',
@@ -16,7 +18,7 @@ const StoneHero = () => {
             alignItems: 'center',
             paddingBottom: '8rem', /* More space at bottom */
             /* Hero Image */
-            backgroundImage: 'url(/dwarfhero.png)',
+            backgroundImage: `url(${pageHeaders?.home?.image || '/heroheaderfull.png'})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             boxShadow: 'inset 0 -200px 150px #050505' /* Smooth fade to black */

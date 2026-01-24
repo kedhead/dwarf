@@ -7,7 +7,7 @@ const RunePanels = () => {
         <section className="container" style={{ margin: '6rem auto' }}>
 
             <h2 className="section-title">
-                Forged In <span>Fire</span>
+                Desert <span>Dwarves</span>
             </h2>
 
             <div style={{
